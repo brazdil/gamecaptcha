@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
+  key: MyString
   email: MyString
   clicks: 1
 
 two:
+  key: MyString
   email: MyString
   clicks: 1

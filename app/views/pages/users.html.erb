@@ -2,11 +2,13 @@
 	<tr>
 		<th>email</th>
 		<th>clicks</th>
+		<th>key</th>
 	</tr>
 <% User.all.each do |user| %>
 	<tr>
   		<td><%= user.email %></td>
   		<td><%= user.clicks %></td>
+  		<td><%= user.key %></td>
 	</tr>  
 <% end %>
 </table>

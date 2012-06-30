@@ -1,3 +1,3 @@
 class User < ActiveRecord::Base
-  attr_accessible :clicks, :email
+  attr_accessible :clicks, :email, :key
 end

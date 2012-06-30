@@ -1,5 +1,5 @@
 Gamecaptcha::Application.routes.draw do
-  match '/', :to => 'pages#captcha'
+  root :to => 'pages#captcha'
   match '/signed_up', :to => 'pages#signed_up'
   match '/users', :to => 'pages#users'
 
