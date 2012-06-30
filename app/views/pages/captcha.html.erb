@@ -1,5 +1,5 @@
 <style>
-    #cokeRun_CAPTCHA { width: 361px; height: 161px; background-image: url('images/ColaPodium_overlay.png'); cursor: pointer;  }
+    #cokeRun_CAPTCHA { width: 361px; height: 161px; background-image: url('images/ColaPodium_overlay.png'); cursor: pointer; position: relative;  }
 	.cokeCan { width: 41px; height: 76px; float: left; position: absolute; }
 	#cokeCan_Red { background-image: url('images/ColaCan__0000_Red.png'); top: 55px; left: -70px; }
 	#cokeCan_Silver { background-image: url('images/ColaCan__0001_Silver.png'); top: 48px; left: -50px; }
@@ -52,27 +52,31 @@ function start() {
 	var positions = $.shuffle([{pos: {top: 55, left: -70}, z: 4}, {pos: {top: 48, left: -50}, z: 3}, {pos: {top: 41, left: 0}, z: 2}, {pos: {top: 34, left: -20}, z: 1}]);
 
 	$( "#cokeCan_Red" ).draggable({containment: "parent", delay: 100, stack: ".cokeCan"})
-	                   .offset(positions[0].pos)
+	                   .css("left", positions[0].pos.left)
+	                   .css("top", positions[0].pos.top)
 	                   .css("z-index", positions[0].z)
                        .animate({ left: '+=100px' }, 1000, function() {
                        	 positions[0].pos.left += 100;
                        });
 
 	$( "#cokeCan_Gold" ).draggable({containment: "parent", delay: 100, stack: ".cokeCan"})
-	                    .offset(positions[1].pos)
+	                   .css("left", positions[1].pos.left)
+	                   .css("top", positions[1].pos.top)
 	                    .css("z-index", positions[1].z)
 	                    .animate({ left: '+=100px' }, 2000, function() {
                        	 positions[1].pos.left += 100;
                        });
 	$( "#cokeCan_Silver" ).draggable({containment: "parent", delay: 100, stack: ".cokeCan"})
- 	                      .offset(positions[2].pos)
+	                      .css("left", positions[2].pos.left)
+	                      .css("top", positions[2].pos.top)
  	                      .css("z-index", positions[2].z)
 	                      .animate({ left: '+=100px' }, 2000, function() {
                        	    positions[2].pos.left += 100;
                           });
 
 	$( "#cokeCan_Bronze" ).draggable({containment: "parent", delay: 100, stack: ".cokeCan"})
-					      .offset(positions[3].pos)
+    	                  .css("left", positions[3].pos.left)
+	                      .css("top", positions[3].pos.top)
 					      .css("z-index", positions[3].z)
 	                      .animate({ left: '+=100px' }, 1000, function() {
                        	     positions[3].pos.left += 100;
@@ -86,47 +90,57 @@ function start() {
 				// var bronzeDone = false;
 				var bronzeDone = true;
 
-				$("#cokeCan_Red").offset(positions[0].pos)
-				                      .css("z-index", positions[0].z);
+				$("#cokeCan_Red").css("top", positions[0].pos.top)
+				                 .css("left", positions[0].pos.left)
+				                 .css("z-index", positions[0].z);
 
-				if ($("#cokeCan_Gold").offset().top >= goldTop - tolerance && 
-				    $("#cokeCan_Gold").offset().top <= goldTop + tolerance &&
-				    $("#cokeCan_Gold").offset().left >= goldLeft - tolerance && 
-					$("#cokeCan_Gold").offset().left <= goldLeft + tolerance) {
-					$("#cokeCan_Gold").offset({top: goldTop, left: goldLeft})
+				if (parseInt($("#cokeCan_Gold").css("top")) >= goldTop - tolerance && 
+				    parseInt($("#cokeCan_Gold").css("top")) <= goldTop + tolerance &&
+				    parseInt($("#cokeCan_Gold").css("left")) >= goldLeft - tolerance && 
+					parseInt($("#cokeCan_Gold").css("left")) <= goldLeft + tolerance) {
+
+					$("#cokeCan_Gold").css("top", goldTop)
+				                      .css("left", goldLeft)
 				                      .draggable("destroy");				
 				    goldDone = true;
 				}
 
 				if (!goldDone)
-					$("#cokeCan_Gold").offset(positions[1].pos)
+					$("#cokeCan_Gold").css("top", positions[1].pos.top)
+				                      .css("left", positions[1].pos.left)
 				                      .css("z-index", positions[1].z);
 
-				if ($("#cokeCan_Silver").offset().top >= silverTop - tolerance && 
-				    $("#cokeCan_Silver").offset().top <= silverTop + tolerance &&
-				    $("#cokeCan_Silver").offset().left >= silverLeft - tolerance && 
-					$("#cokeCan_Silver").offset().left <= silverLeft + tolerance) {
-					$("#cokeCan_Silver").offset({top: silverTop, left: silverLeft})
+				if (parseInt($("#cokeCan_Silver").css("top")) >= silverTop - tolerance && 
+				    parseInt($("#cokeCan_Silver").css("top")) <= silverTop + tolerance &&
+				    parseInt($("#cokeCan_Silver").css("left")) >= silverLeft - tolerance && 
+					parseInt($("#cokeCan_Silver").css("left")) <= silverLeft + tolerance) {
+
+					$("#cokeCan_Silver").css("top", silverTop)
+				                        .css("left", silverLeft)
 				                        .draggable("destroy");
 				    silverDone = true;
 				}
 
 				if (!silverDone)
-					$("#cokeCan_Silver").offset(positions[2].pos)
-				                      .css("z-index", positions[2].z);
+					$("#cokeCan_Silver").css("top", positions[2].pos.top)
+				                        .css("left", positions[2].pos.left)
+				                        .css("z-index", positions[2].z);
 
-				// if ($("#cokeCan_Bronze").offset().top >= bronzeTop - tolerance && 
-				//     $("#cokeCan_Bronze").offset().top <= bronzeTop + tolerance &&
-				//     $("#cokeCan_Bronze").offset().left >= bronzeLeft - tolerance && 
-				// 	$("#cokeCan_Bronze").offset().left <= bronzeLeft + tolerance) {
-				// 	$("#cokeCan_Bronze").offset({top: bronzeTop, left: bronzeLeft})
+				// if (parseInt($("#cokeCan_Bronze").css("top")) >= bronzeTop - tolerance && 
+				//     parseInt($("#cokeCan_Bronze").css("top")) <= bronzeTop + tolerance &&
+				//     parseInt($("#cokeCan_Bronze").css("left")) >= bronzeLeft - tolerance && 
+				// 	parseInt($("#cokeCan_Bronze").css("left")) <= bronzeLeft + tolerance) {
+
+				// 	$("#cokeCan_Bronze").css("top", bronzeTop)
+				//                         .css("left", bronzeLeft)
 				//                         .draggable("destroy");
 				//     bronzeDone = true;
 				// }
 
 				// if (!bronzeDone)
-				// 	$("#cokeCan_Bronze").offset(positions[3].pos)
-				//                       .css("z-index", positions[3].z);
+				// 	$("#cokeCan_Bronze").css("top", positions[3].pos.top)
+				//                         .css("left", positions[3].pos.left)
+				//                         .css("z-index", positions[3].z);
 
 				if (goldDone && silverDone && bronzeDone)
 					alert("YES!!!!")				                      
@@ -154,6 +168,8 @@ $(function() {
 });
 
 </script>
+
+<h1>GameCAPTCHA </h1>
 
 <div id="cokeRun_CAPTCHA">
 	<div id="cokeCan_Gold" class="cokeCan">&nbsp;</div>
