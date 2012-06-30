@@ -3,6 +3,7 @@ class PagesController < ApplicationController
   end
 
   def signed_up
-  	@number_of_clicks = params[:clicks]
+  	user = User.new(:email => params[:email], :clicks => params[:clicks])
+  	user.save
   end
 end
