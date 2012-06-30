@@ -132,7 +132,7 @@ function start() {
 				//                         .css("z-index", positions[3].z);
 
 				if (goldDone && silverDone && bronzeDone)
-					alert("YES!!!!")				                      
+					$("#CAPTCHA_Form").submit();		                      
 			}
 		});
 }

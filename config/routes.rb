@@ -1,5 +1,6 @@
 Gamecaptcha::Application.routes.draw do
   match '/', :to => 'pages#captcha'
+  match '/signed_up', :to => 'pages#signed_up'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
