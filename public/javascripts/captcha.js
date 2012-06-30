@@ -138,7 +138,6 @@ function start() {
 }
 
 $(function() {
-	init();
 	$("#cokeCan_Red").hide();
 	$("#cokeCan_Gold").hide();
 	$("#cokeCan_Silver").hide();
@@ -146,6 +145,7 @@ $(function() {
 
 	$("#cokeRun_CAPTCHA").click(function() {
 		$("#cokeRun_CAPTCHA").unbind('click');
+		init();
 		$("#cokeCan_Red").show();
 		$("#cokeCan_Gold").show();
 		$("#cokeCan_Silver").show();
