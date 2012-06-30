@@ -74,6 +74,10 @@ function start() {
 
 	$( "#droppable" ).droppable({
 			drop: function( event, ui ) {
+				
+				var countfield = $("#CAPTCHA_Clicks");
+    			countfield.val(1 + parseInt(countfield.val()));
+
 				var goldDone = false;
 				var silverDone = false;
 				// var bronzeDone = false;
@@ -144,8 +148,8 @@ $(function() {
 	$("#cokeCan_Bronze").hide();
 
 	$("#cokeRun_CAPTCHA").click(function() {
-		$("#cokeRun_CAPTCHA").unbind('click');
 		init();
+		$("#cokeRun_CAPTCHA").unbind('click');
 		$("#cokeCan_Red").show();
 		$("#cokeCan_Gold").show();
 		$("#cokeCan_Silver").show();
