@@ -1,4 +1,6 @@
 Gamecaptcha::Application.routes.draw do
+  get "pages/captcha"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
