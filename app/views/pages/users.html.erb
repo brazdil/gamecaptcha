@@ -1,0 +1,12 @@
+<table>
+	<tr>
+		<th>email</th>
+		<th>clicks</th>
+	</tr>
+<% User.all.each do |user| %>
+	<tr>
+  		<td><%= user.email %></td>
+  		<td><%= user.clicks %></td>
+	</tr>  
+<% end %>
+</table>
