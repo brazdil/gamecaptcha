@@ -1,4 +1,5 @@
 <style>
+    #cokeRun_CAPTCHA { width: 361px; height: 161px; background-image: url('images/ColaPodium_overlay.png'); cursor: pointer;  }
 	.cokeCan { width: 41px; height: 76px; float: left; position: absolute; }
 	#cokeCan_Red { background-image: url('images/ColaCan__0000_Red.png'); top: 55px; left: -70px; }
 	#cokeCan_Silver { background-image: url('images/ColaCan__0001_Silver.png'); top: 48px; left: -50px; }
@@ -39,8 +40,7 @@ function init()
    document.addEventListener("touchcancel", touchHandler, true);    
 }
 
-$(function() {
-	init();
+function start() {
 	var positions = $.shuffle([{pos: {top: 55, left: -70}, z: 4}, {pos: {top: 48, left: -50}, z: 3}, {pos: {top: 41, left: 0}, z: 2}, {pos: {top: 34, left: -20}, z: 1}]);
 
 	$( "#cokeCan_Red" ).draggable({containment: "parent", delay: 100, stack: ".cokeCan"})
@@ -130,10 +130,30 @@ $(function() {
 					alert("YES!!!!")				                      
 			}
 		});
+}
+
+$(function() {
+	init();
+	$("#cokeCan_Red").hide();
+	$("#cokeCan_Gold").hide();
+	$("#cokeCan_Silver").hide();
+	$("#cokeCan_Bronze").hide();
+
+	$("#cokeRun_CAPTCHA").click(function() {
+		$("#cokeRun_CAPTCHA").unbind('click');
+		$("#cokeCan_Red").show();
+		$("#cokeCan_Gold").show();
+		$("#cokeCan_Silver").show();
+		$("#cokeCan_Bronze").show();
+		$("#cokeRun_CAPTCHA").css("cursor", "default");
+		$("#cokeRun_CAPTCHA").css("background-image", "url('images/ColaPodium.png')");
+		start();
+	})
 });
+
 </script>
 
-<div class="demo" style="width: 361px; height: 161px; background-image: url('images/ColaPodium.png'); ">
+<div id="cokeRun_CAPTCHA">
 	<div id="cokeCan_Gold" class="cokeCan">&nbsp;</div>
 	<div id="cokeCan_Bronze" class="cokeCan">&nbsp;</div>
 	<div id="cokeCan_Silver" class="cokeCan">&nbsp;</div>
