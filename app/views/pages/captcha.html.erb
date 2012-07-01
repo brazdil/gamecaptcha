@@ -8,7 +8,7 @@
 	#droppable { width: 100%; height: 100%; float: left; }
 </style>
 
-<form id="CAPTCHA_Form" action="signed_up" method="post">
+<form id="CAPTCHA_Form" action="signed_up" method="post" onKeyPress="return checkEnter(event);">
 	<input name="clicks" id="CAPTCHA_Clicks" type="hidden" value="0" />
 	<input name="user_key" type="hidden" value="<%= @user_key %>" />
     <div class="panel" style="background-image: url('images/sprite_signup.png'); width: 962px; height: 452px;">

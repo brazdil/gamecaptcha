@@ -1,3 +1,8 @@
+function checkEnter(e){
+ e = e || event;
+ return (e.keyCode || event.which || event.charCode || 0) !== 13;
+}
+
 function touchHandler(event)
 {
  var touches = event.changedTouches,
