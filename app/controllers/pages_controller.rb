@@ -33,4 +33,8 @@ class PagesController < ApplicationController
     @clicks = Float(@clicks) / Float(@success)
     @time = Float(@time) / Float(@success) / 1000.0
   end
+
+  def reset
+    User.delete_all
+  end
 end
