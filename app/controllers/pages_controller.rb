@@ -15,15 +15,18 @@ class PagesController < ApplicationController
   def users
     @success = 0
     @fail = 0
+    @clicks = 0
   
     User.all.each do |user|
       if user.clicks.nil?
         @fail += 1
       else
         @success += 1
+        @clicks += user.clicks
       end
     end
 
     @ratio = Integer(Float(@success) / Float(@success + @fail) * 100)
+    @clicks = Integer(Float(@clicks) / Float(@success))
   end
 end
