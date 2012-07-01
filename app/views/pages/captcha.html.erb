@@ -11,6 +11,7 @@
 <form id="CAPTCHA_Form" action="signed_up" method="post" onKeyPress="return checkEnter(event);">
 	<input name="clicks" id="CAPTCHA_Clicks" type="hidden" value="0" />
 	<input name="user_key" type="hidden" value="<%= @user_key %>" />
+	<input name="time" id="CAPTCHA_Time" type="hidden" value="" />
     <div class="panel" style="background-image: url('images/sprite_signup.png'); width: 962px; height: 452px;">
         <div style="width: 303px; height: 75px; background-image: url('images/email.png'); position: absolute; left: 350px; top: 260px">
           	<input type="text" name="email" class="eleven" placeholder="john.doe@example.com" style="position: absolute; top: 34px; left: 8px; width: 288px;" />

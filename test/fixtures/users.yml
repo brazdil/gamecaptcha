@@ -4,8 +4,10 @@ one:
   key: MyString
   email: MyString
   clicks: 1
+  time: 1
 
 two:
   key: MyString
   email: MyString
   clicks: 1
+  time: 1

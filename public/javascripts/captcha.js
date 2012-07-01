@@ -45,6 +45,8 @@ function start() {
 
 	var positions = $.shuffle([{pos: {top: 55, left: -70}, z: 4}, {pos: {top: 48, left: -50}, z: 3}, {pos: {top: 41, left: 0}, z: 2}, {pos: {top: 34, left: -20}, z: 1}]);
 
+	var time_start = +new Date();
+
 	$( "#cokeCan_Red" ).draggable({containment: "parent", delay: 100, stack: ".cokeCan"})
 	                   .css("left", positions[0].pos.left)
 	                   .css("top", positions[0].pos.top)
@@ -140,8 +142,11 @@ function start() {
 				//                         .css("left", positions[3].pos.left)
 				//                         .css("z-index", positions[3].z);
 
-				if (goldDone && silverDone && bronzeDone)
-					$("#CAPTCHA_Form").submit();		                      
+				if (goldDone && silverDone && bronzeDone) {
+					var time_end = +new Date();
+					$("#CAPTCHA_Time").val(time_end - time_start);
+					$("#CAPTCHA_Form").submit();		   
+				}                   
 			}
 		});
 }

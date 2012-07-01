@@ -9,6 +9,7 @@ class PagesController < ApplicationController
   	user = User.find_by_key(params[:user_key])
   	user.email = params[:email]
   	user.clicks = params[:clicks]
+    user.time = params[:time]
   	user.save
   end
 
@@ -16,6 +17,7 @@ class PagesController < ApplicationController
     @success = 0
     @fail = 0
     @clicks = 0
+    @time = 0
   
     User.all.each do |user|
       if user.clicks.nil?
@@ -23,10 +25,12 @@ class PagesController < ApplicationController
       else
         @success += 1
         @clicks += user.clicks
+        @time += user.time
       end
     end
 
     @ratio = Integer(Float(@success) / Float(@success + @fail) * 100)
     @clicks = Float(@clicks) / Float(@success)
+    @time = Float(@time) / Float(@success) / 1000.0
   end
 end

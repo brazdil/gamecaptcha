@@ -16,6 +16,10 @@
 		<th>Average # of clicks</th>
 		<td><%= @clicks %></td>
 	</tr>
+	<tr>
+		<th>Average time to complete</th>
+		<td><%= @time %> s</td>
+	</tr>
 </table>
 
 <h2>Database content</h2>
@@ -23,6 +27,7 @@
 	<tr>
 		<th>email</th>
 		<th>clicks</th>
+		<th>time</th>
 		<th>key</th>
 	</tr>
 <% User.all.each do |user| %>
