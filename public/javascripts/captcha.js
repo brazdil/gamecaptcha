@@ -71,7 +71,8 @@ function start() {
                           });
 
 //	$( "#cokeCan_Bronze" ).draggable({containment: "parent", delay: 100, stack: ".cokeCan"})
-    $( "#cokeCan_Bronze" ).css("left", positions[3].pos.left)
+    $( "#cokeCan_Bronze" ).draggable("destroy")
+                          .css("left", positions[3].pos.left)
 	                      .css("top", positions[3].pos.top)
 					      .css("z-index", positions[3].z)
 	                      .animate({ left: '+=100px' }, 1000, function() {
