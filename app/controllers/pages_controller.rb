@@ -11,4 +11,19 @@ class PagesController < ApplicationController
   	user.clicks = params[:clicks]
   	user.save
   end
+
+  def users
+    @success = 0
+    @fail = 0
+  
+    User.all.each do |user|
+      if user.clicks.nil?
+        @fail += 1
+      else
+        @success += 1
+      end
+    end
+
+    @ratio = Integer(Float(@success) / Float(@success + @fail) * 100)
+  end
 end
