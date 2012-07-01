@@ -18,7 +18,12 @@ class PagesController < ApplicationController
     @fail = 0
     @clicks = 0
     @time = 0
+    @ratio = 0
   
+    if User.first.nil?
+      return
+    end
+      
     User.all.each do |user|
       if user.clicks.nil?
         @fail += 1
