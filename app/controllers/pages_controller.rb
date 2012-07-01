@@ -27,6 +27,6 @@ class PagesController < ApplicationController
     end
 
     @ratio = Integer(Float(@success) / Float(@success + @fail) * 100)
-    @clicks = Integer(Float(@clicks) / Float(@success))
+    @clicks = Float(@clicks) / Float(@success)
   end
 end
